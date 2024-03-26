@@ -116,15 +116,21 @@ describe("API Pact test", () => {
     test("ID 10 exists", async () => {
       // set up Pact interactions
       await provider.addInteraction({
-        states: [{ description: "product with ID 10 exists" }],
-        uponReceiving: "get product with ID 10",
+        // states: [{ description: "product with ID 10 exists" }],
+        // uponReceiving: "get product with ID 10",
+        // withRequest: {
+        //   method: "GET",
+        //   path: "/product/10",
+        //   headers: {
+        //     Authorization: like("Bearer 2019-01-14T11:34:18.045Z"),
+        //   },
+        // },
+        state: 'product with ID 10 exists',
+        uponReceiving: 'get product with ID 10',
         withRequest: {
-          method: "GET",
-          path: "/product/10",
-          headers: {
-            Authorization: like("Bearer 2019-01-14T11:34:18.045Z"),
-          },
-        },
+        method: 'GET',
+        path: '/product/10'
+      },
         willRespondWith: {
           status: 200,
           headers: {

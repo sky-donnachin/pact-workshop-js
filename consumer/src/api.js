@@ -35,14 +35,18 @@ export class API {
             .then(r => r.data);
     }
 
+    // async getProduct(id) {
+    //     return axios.get(this.withPath("/product/" + id), {
+    //         headers: {
+    //             "Authorization": this.generateAuthToken()
+    //         }
+    //     })
+    //         .then(r => r.data);
+    // }
     async getProduct(id) {
-        return axios.get(this.withPath("/product/" + id), {
-            headers: {
-                "Authorization": this.generateAuthToken()
-            }
-        })
-            .then(r => r.data);
-    }
+        return axios.get(this.withPath("/product/" + id))
+        .then(r => r.data);
+      }
 }
 
 export default new API(process.env.REACT_APP_API_BASE_URL);
