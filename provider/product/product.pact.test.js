@@ -65,13 +65,14 @@
 //         });
 //     })
 // });
+
 const { Verifier } = require('@pact-foundation/pact');
 const path = require('path');
 
 // Setup provider server to verify
 const app = require('express')();
 app.use(require('./product.routes'));
-const server = app.listen("8080");
+const server = app.listen("8000");
 
 describe("Pact Verification", () => {
     it("validates the expectations of ProductService", () => {
